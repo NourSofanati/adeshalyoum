@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="manifest" href="/manifest.json">
+    <title>أديش اليوم</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="pricecard">
+            <img src="assets/usd.svg" alt="" class="currency-icon">
+            <span class="left-pane">
+                <h1 class="currency-name">صرف الدولار</h1>
+                <div class="values">
+                    <span class="sell-price" id="usd">
+                        <p>بيع:</p>
+                        <p class="value">935</p>
+                    </span>
+                    <span class="buy-price">
+                        <p>شراء:</p>
+                        <p class="value">920</p>
+                    </span>
+                </div>
+            </span>
+        </div>
+        <div class="pricecard">
+            <img src="assets/eur.svg" alt="" class="currency-icon">
+            <span class="left-pane">
+                <h1 class="currency-name">صرف الدولار</h1>
+                <div class="values">
+                    <span class="sell-price" id="eur">
+                        <p>بيع:</p>
+                        <p class="value">1030</p>
+                    </span>
+                    <span class="buy-price">
+                        <p>شراء:</p>
+                        <p class="value">1011</p>
+                    </span>
+                </div>
+            </span>
+        </div>
+        <div class="pricecard">
+            <img src="assets/coin.svg" alt="" class="currency-icon">
+            <span class="left-pane">
+                <h1 class="currency-name">صرف الدولار</h1>
+                <div class="values">
+                    <span class="sell-price" id="gold">
+                        <p>بيع:</p>
+                        <p class="value">32199</p>
+                    </span>
+                    <span class="buy-price">
+                        <p>شراء:</p>
+                        <p class="value">37565</p>
+                    </span>
+                </div>
+            </span>
+        </div>
+    </div>
+    <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
+</body>
+
+</html>
