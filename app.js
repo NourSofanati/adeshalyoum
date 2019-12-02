@@ -1,8 +1,8 @@
 let gPrices;
-let usdSell = document.querySelector("#usd > .sell-price > p.value");
-let usdBuy = document.querySelector("#usd>.buy-price>.value");
-let eurSell = document.querySelector("#eur>.sell-price>.value");
-let eurBuy = document.querySelector("#eur>.buy-price>.value");
+let usdBuy = document.querySelector("#usd > .sell-price > p.value");
+let usdSell = document.querySelector("#usd>.buy-price>.value");
+let eurBuy = document.querySelector("#eur>.sell-price>.value");
+let eurSell = document.querySelector("#eur>.buy-price>.value");
 
 fetch('https://viralcarbons.com/get.php').then(data=>data.json()).then(prices=>{
     console.log(prices);
