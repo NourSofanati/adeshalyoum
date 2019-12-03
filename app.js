@@ -6,22 +6,27 @@ let update = document.querySelector(".update");
 let usdArrow = document.querySelector("#usdArrow");
 let eurArrow = document.querySelector("#eurArrow");
 let gPrices, gDate;
-try {
+if (localStorage.getItem("prices")) {
     gPrices = JSON.parse(localStorage.getItem("prices"));
-    gDate = localStorage.getItem("date");
     updatePrices();
-} catch {
-    console.info("Prices haven't been loaded yet");
 }
 
+fetchData()
+async function fetchData() {
 
-fetch('https://viralcarbons.com/get.php').then(data => data.json()).then(prices => {
-    console.log(prices);
-    localStorage.setItem("date", new Date().toLocaleDateString());
-    localStorage.setItem("prices", JSON.stringify(prices));
-    update.classList.add("justUpdated");
-    updatePrices()
-})
+    document.querySelector("#refreshIcon").classList.add("rotate");
+    await fetch('https://viralcarbons.com/get.php').then(data => data.json()).then(prices => {
+        gPrices = prices;
+        localStorage.setItem("date", new Date().toLocaleDateString());
+        localStorage.setItem("prices", JSON.stringify(prices));
+        updatePrices()
+        update.classList.add("justUpdated");
+        setTimeout(() => {
+            update.classList.remove("justUpdated");
+            document.querySelector("#refreshIcon").classList.remove("rotate");
+        }, 3000);
+    })
+}
 
 function updatePrices() {
 
