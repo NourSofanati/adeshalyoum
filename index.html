@@ -11,17 +11,23 @@
     <meta name="Description" content="أديش اليوم تطبيق لنشرة أسعار الصرف اليومية بالليرة السوريّة">
     <link rel="manifest" href="/manifest.json">
     <title>أديش اليوم</title>
-    <style>
-        body,h1,p{margin:0}:root{font-family:sans-serif}.container{overflow:hidden;position:relative;width:100vw;height:100vh;background:linear-gradient(114.19deg,rgba(255,0,0,.31) -57.2%,#ffc700 81.81%);box-sizing:border-box;padding:2vw;display:flex;flex-direction:column}.pricecard{box-shadow:2.5px 2.5px 10px rgba(0,0,0,.25);background:#f2f2f2;border-radius:65px 0 0 65px;height:130px;position:relative;margin-bottom:2vw}.currency-icon{position:absolute;left:0;height:130px;-webkit-filter:drop-shadow(3px 0 25px rgba(0, 0, 0, .5));filter:drop-shadow(3px 0 25px rgba(0, 0, 0, .25))}.currency-name{position:absolute;height:45px;right:10px;width:180px;top:0;margin:0;font-style:normal;font-weight:600;font-size:24px;line-height:45px;text-align:right;color:rgba(0,0,0,.75);display:flex;justify-content:space-between}.values{position:absolute;right:18px;top:46px}.values span{display:flex;width:130px;justify-content:space-between}.values span p{font-size:20px;line-height:34px;font-weight:400;text-align:right;color:rgba(0,0,0,.55)}.header-text{text-align:center;margin-bottom:2vw}.arrow{width:20px;margin-right:15px}.justUpdated{animation-name:zAnim;animation-duration:3s;animation-fill-mode:forwards}.update{position:absolute;bottom:50px;left:0;right:0;text-align:center;transform:translateY(200px);z-index:10}.update-button{-webkit-filter:drop-shadow(3px 3px 5px rgba(0, 0, 0, .5));filter:drop-shadow(3px 3px 5px rgba(0, 0, 0, .25));display:flex;align-items:center;background:#fff;position:absolute;left:2vw;bottom:2vw;font-size:1.2rem;padding:2px 10px;border-radius:25px;cursor:pointer}@keyframes zAnim{0%{transform:translateY(200px)}20%,80%{transform:translateY(0)}100%{transform:translateY(200px)}}@keyframes zRotate{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}#refreshIcon{width:35px;position:relative!important}.rotate{animation-name:zRotate;animation-duration:3s;animation-timing-function:ease-in-out}
-    </style>
-    
+    <link rel="preconnect" href="https://viralcarbons.com">
+    <link rel="stylesheet" href="style.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-59460594-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-59460594-3');
+    </script>
 </head>
 
 <body>
     <div class="container">
         <h1 class="header-text">أسعار الصرف في دمشق</h1>
         <div class="pricecard">
-            <img src="assets/usd.svg" alt="Dollar currency icon" class="currency-icon">
+            <img src="assets/usd.svg" alt="" class="currency-icon">
             <span class="left-pane">
                 <h1 class="currency-name">صرف الدولار <img id="usdArrow"></h1>
                 <div class="values" id="usd">
@@ -37,7 +43,7 @@
         </span>
     </div>
     <div class="pricecard">
-        <img src="assets/bank.svg" alt="bank icon" class="currency-icon">
+        <img src="assets/bank.svg" alt="" class="currency-icon">
         <span class="left-pane">
                 <h1 class="currency-name">صرف المركزي <img id="mrkArrow" src="assets/steady.svg"></h1>
                 <div class="values" id="mrk">
@@ -53,7 +59,7 @@
     </span>
     </div>
     <div class="pricecard">
-        <img src="assets/eur.svg" alt="Euro currency icon" class="currency-icon">
+        <img src="assets/eur.svg" alt="" class="currency-icon">
         <span class="left-pane">
                 <h1 class="currency-name">صرف اليورو <img id="eurArrow"></h1>
                 <div class="values" id="eur">
@@ -73,17 +79,16 @@
         <h2>تم التحديث لآخر نشرة</h2>
     </div>
     <div class="update-button" onclick="fetchData()">
-        <img src="assets/refresh.svg" id="refreshIcon" alt="refresh"> تحديث النشرة
+        <img src="assets/refresh.svg" id="refreshIcon"> تحديث النشرة
     </div>
     </div>
+    <script src="app.js"></script>
     <script>
-        let gPrices,gDate,usdBuy=document.querySelector("#usd > .sell-price > p.value"),usdSell=document.querySelector("#usd>.buy-price>.value"),eurBuy=document.querySelector("#eur>.sell-price>.value"),eurSell=document.querySelector("#eur>.buy-price>.value"),update=document.querySelector(".update"),usdArrow=document.querySelector("#usdArrow"),eurArrow=document.querySelector("#eurArrow");async function fetchData(){document.querySelector("#refreshIcon").classList.add("rotate"),await fetch("https://viralcarbons.com/get.php").then(e=>e.json()).then(e=>{gPrices=e,localStorage.setItem("date",(new Date).toLocaleDateString()),localStorage.setItem("prices",JSON.stringify(e)),updatePrices(),update.classList.add("justUpdated"),setTimeout(()=>{update.classList.remove("justUpdated"),document.querySelector("#refreshIcon").classList.remove("rotate")},3e3)})}function updatePrices(){usdSell.textContent=gPrices[0].sell_price,usdBuy.textContent=gPrices[0].buy_price,0==gPrices[0].arrow?usdArrow.src="/assets/arrow-down.svg":usdArrow.src="/assets/arrow-up.svg",eurSell.textContent=gPrices[1].sell_price,eurBuy.textContent=gPrices[1].buy_price,0==gPrices[1].arrow?eurArrow.src="/assets/arrow-down.svg":eurArrow.src="/assets/arrow-up.svg"}localStorage.getItem("prices")&&(gPrices=JSON.parse(localStorage.getItem("prices")),updatePrices()),fetchData();
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
                 navigator.serviceWorker.register('/service-worker.js');
             });
         }
-        
     </script>
 </body>
 
