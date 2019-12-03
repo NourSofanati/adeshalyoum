@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="theme-color" content="#ffc700"/>
+    <meta name="theme-color" content="#ffc700" />
     <link rel="icon" sizes="192x192" href="/images/icons-192.png">
     <link rel="apple-touch-icon" href="/images/icons-192.png">
     <meta name="Description" content="أديش اليوم تطبيق لنشرة أسعار الصرف اليومية بالليرة السوريّة">
@@ -17,43 +17,64 @@
 
 <body>
     <div class="container">
+        <h1 class="header-text">أسعار الصرف في دمشق</h1>
         <div class="pricecard">
             <img src="assets/usd.svg" alt="" class="currency-icon">
             <span class="left-pane">
-                <h1 class="currency-name">صرف الدولار</h1>
-                <div class="values"  id="usd">
+                <h1 class="currency-name">صرف الدولار <img id="usdArrow"></h1>
+                <div class="values" id="usd">
                     <span class="sell-price">
                         <p>بيع:</p>
                         <p class="value">000</p>
                     </span>
-                    <span class="buy-price">
+            <span class="buy-price">
                         <p>شراء:</p>
                         <p class="value">000</p>
                     </span>
-                </div>
-            </span>
         </div>
-        <div class="pricecard">
-            <img src="assets/eur.svg" alt="" class="currency-icon">
-            <span class="left-pane">
-                <h1 class="currency-name">صرف اليورو</h1>
+        </span>
+    </div>
+    <div class="pricecard">
+        <img src="assets/bank.svg" alt="" class="currency-icon">
+        <span class="left-pane">
+                <h1 class="currency-name">صرف المركزي <img id="mrkArrow" src="assets/steady.svg"></h1>
+                <div class="values" id="mrk">
+                    <span class="sell-price">
+                        <p>بيع:</p>
+                        <p class="value">438.34</p>
+                    </span>
+        <span class="buy-price">
+                        <p>شراء:</p>
+                        <p class="value">434</p>
+                    </span>
+    </div>
+    </span>
+    </div>
+    <div class="pricecard">
+        <img src="assets/eur.svg" alt="" class="currency-icon">
+        <span class="left-pane">
+                <h1 class="currency-name">صرف اليورو <img id="eurArrow"></h1>
                 <div class="values" id="eur">
                     <span class="sell-price">
                         <p>بيع:</p>
                         <p class="value">000</p>
                     </span>
-                    <span class="buy-price">
+        <span class="buy-price">
                         <p>شراء:</p>
                         <p class="value">000</p>
                     </span>
-                </div>
-            </span>
-        </div>
+    </div>
+    </span>
+    </div>
+
+    <div class="update">
+        <h2>تم التحديث لآخر نشرة</h2>
+    </div>
     </div>
     <script src="app.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function () {
+            window.addEventListener('load', function() {
                 navigator.serviceWorker.register('/service-worker.js');
             });
         }
