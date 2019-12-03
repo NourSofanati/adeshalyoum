@@ -11,8 +11,10 @@ if('serviceWorker' in navigator) {
 let cache_name = 'mysite-v1'
 
 let urls_to_cache = [
- '/',
- '/js/script.js'
+ '/assets',
+ '/images',
+ '/style.css',
+ '/app.js'   
 ]
 
 self.addEventListener('install', (e) => {
