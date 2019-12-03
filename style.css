@@ -92,11 +92,12 @@ p {
 
 .update {
     position: absolute;
-    bottom: 0;
+    bottom: 20px;
     left: 0;
     right: 0;
     text-align: center;
     transform: translateY(200px);
+    z-index=10;
 }
 
 .update-button {
