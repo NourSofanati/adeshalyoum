@@ -12,7 +12,7 @@
     <link rel="manifest" href="/manifest.json">
     <title>أديش اليوم</title>
     <link rel="preconnect" href="https://viralcarbons.com">
-    <link rel="stylesheet" href="style.min.css">
+    <link rel="stylesheet" href="style.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-59460594-3"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -28,7 +28,7 @@
         <div class="pricecard">
             <img src="assets/usd.svg" alt="USD Icon" class="currency-icon">
             <span class="left-pane">
-                <h1 class="currency-name">صرف الدولار <img id="usdArrow" alt="Arrow icon"></h1>
+                <h1 class="currency-name">صرف الدولار <img id="usdArrow" alt="Arrow icon" src="assets/steady.svg"></h1>
                 <div class="values" id="usd">
                     <span class="sell-price">
                         <p>بيع:</p>
@@ -60,7 +60,7 @@
     <div class="pricecard">
         <img src="assets/eur.svg" alt="Euro Icon" class="currency-icon">
         <span class="left-pane">
-                <h1 class="currency-name">صرف اليورو <img id="eurArrow" alt="Arrow icon"></h1>
+                <h1 class="currency-name">صرف اليورو <img id="eurArrow" alt="Arrow icon" src="assets/steady.svg"></h1>
                 <div class="values" id="eur">
                     <span class="sell-price">
                         <p>بيع:</p>
@@ -81,7 +81,7 @@
         <img src="assets/refresh.svg" id="refreshIcon" alt="Refresh icon"> تحديث النشرة
     </div>
     </div>
-    <script src="app.min.js"></script>
+    <script src="app.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
