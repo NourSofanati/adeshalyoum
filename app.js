@@ -33,9 +33,9 @@ function updatePrices() {
 
     usdSell.textContent = gPrices.newPrices[0].sell_price;
     usdBuy.textContent = gPrices.newPrices[0].buy_price;
-    gPrices.newPrices[0].arrow == 0 ? usdArrow.src = "/assets/arrow-down.svg" : usdArrow.src = "/assets/arrow-up.svg";
+    gPrices.newPrices[0].sell_price < gPrices.oldPrices[0].sell_price ? usdArrow.src = "/assets/arrow-down.svg" : usdArrow.src = "/assets/arrow-up.svg";
     eurSell.textContent = gPrices.newPrices[1].sell_price;
     eurBuy.textContent = gPrices.newPrices[1].buy_price;
-    gPrices.newPrices[1].arrow == 0 ? eurArrow.src = "/assets/arrow-down.svg" : eurArrow.src = "/assets/arrow-up.svg";
+    gPrices.newPrices[1].sell_price < gPrices.oldPrices[1].sell_price ? eurArrow.src = "/assets/arrow-down.svg" : eurArrow.src = "/assets/arrow-up.svg";
 
 }
