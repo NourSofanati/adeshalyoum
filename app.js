@@ -6,6 +6,7 @@ let update = document.querySelector(".update");
 let usdArrow = document.querySelector("#usdArrow");
 let eurArrow = document.querySelector("#eurArrow");
 let gPrices, gDate;
+let url='https://viralcarbons.com/results.json'
 if (localStorage.getItem("prices")) {
     gPrices = JSON.parse(localStorage.getItem("prices"));
     updatePrices();
@@ -15,7 +16,7 @@ fetchData()
 async function fetchData() {
 
     document.querySelector("#refreshIcon").classList.add("rotate");
-    await fetch('https://viralcarbons.com/get.php').then(data => data.json()).then(prices => {
+    await fetch(url).then(data => data.json()).then(prices => {
         gPrices = prices;
         localStorage.setItem("date", new Date().toLocaleDateString());
         localStorage.setItem("prices", JSON.stringify(prices));
