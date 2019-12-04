@@ -6,7 +6,7 @@ let update = document.querySelector(".update");
 let usdArrow = document.querySelector("#usdArrow");
 let eurArrow = document.querySelector("#eurArrow");
 let gPrices, gDate;
-let url='https://viralcarbons.com/results.json'
+let url='https://viralcarbons.com/result.json'
 if (localStorage.getItem("prices")) {
     gPrices = JSON.parse(localStorage.getItem("prices"));
     updatePrices();
