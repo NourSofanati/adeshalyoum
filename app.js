@@ -30,11 +30,11 @@ async function fetchData() {
 
 function updatePrices() {
 
-    usdSell.textContent = gPrices[0].sell_price;
-    usdBuy.textContent = gPrices[0].buy_price;
-    gPrices[0].arrow == 0 ? usdArrow.src = "/assets/arrow-down.svg" : usdArrow.src = "/assets/arrow-up.svg";
-    eurSell.textContent = gPrices[1].sell_price;
-    eurBuy.textContent = gPrices[1].buy_price;
-    gPrices[1].arrow == 0 ? eurArrow.src = "/assets/arrow-down.svg" : eurArrow.src = "/assets/arrow-up.svg";
+    usdSell.textContent = gPrices.newPrices[0].sell_price;
+    usdBuy.textContent = gPrices.newPrices[0].buy_price;
+    gPrices.newPrices[0].arrow == 0 ? usdArrow.src = "/assets/arrow-down.svg" : usdArrow.src = "/assets/arrow-up.svg";
+    eurSell.textContent = gPrices.newPrices[1].sell_price;
+    eurBuy.textContent = gPrices.newPrices[1].buy_price;
+    gPrices.newPrices[1].arrow == 0 ? eurArrow.src = "/assets/arrow-down.svg" : eurArrow.src = "/assets/arrow-up.svg";
 
 }
