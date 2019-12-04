@@ -91,7 +91,7 @@ p {
 }
 
 .update {
-    position: absolute;
+    position: fixed;
     bottom: 50px;
     left: 0;
     right: 0;
@@ -106,7 +106,7 @@ p {
     display: flex;
     align-items: center;
     background: white;
-    position: absolute;
+    position: fixed;
     left: 2vw;
     bottom: 2vw;
     font-size: 1.2rem;
