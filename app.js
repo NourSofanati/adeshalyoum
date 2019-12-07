@@ -13,12 +13,12 @@ if (localStorage.getItem("prices")) {
 }
 
 fetchData()
-async function fetchData() {
+function fetchData() {
 
     document.querySelector("#refreshIcon").classList.add("rotate");
-    await fetch(url).then(data => data.json()).then(prices => {
+    fetch(url).then(data => data.json()).then(prices => {
         gPrices = prices;
-        localStorage.clear();
+        
         localStorage.setItem("prices", JSON.stringify(prices));
         updatePrices()
         update.classList.add("justUpdated");
