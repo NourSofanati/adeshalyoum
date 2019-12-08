@@ -6,6 +6,7 @@ let update = document.querySelector(".update");
 let usdArrow = document.querySelector("#usdArrow");
 let eurArrow = document.querySelector("#eurArrow");
 let gPrices;
+let latest = document.querySelector("#latest");
 let url='https://viralcarbons.com/get.php'
 if (localStorage.getItem("prices")) {
     gPrices = JSON.parse(localStorage.getItem("prices"));
@@ -37,5 +38,5 @@ function updatePrices() {
     eurSell.textContent = gPrices.newPrices[1].sell_price;
     eurBuy.textContent = gPrices.newPrices[1].buy_price;
     gPrices.newPrices[1].sell_price < gPrices.oldPrices[1].sell_price ? eurArrow.src = "/assets/arrow-down.svg" : eurArrow.src = "/assets/arrow-up.svg";
-
+    latest.textContent = gPrices.lastUpdate;
 }
