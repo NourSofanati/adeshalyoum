@@ -13,7 +13,7 @@ if (localStorage.getItem("prices")) {
     updatePrices();
 }
 
-await fetchData()
+fetchData()
 async function fetchData() {
 
     document.querySelector("#refreshIcon").classList.add("rotate");
