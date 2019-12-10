@@ -7,7 +7,7 @@ let usdArrow = document.querySelector("#usdArrow");
 let eurArrow = document.querySelector("#eurArrow");
 let gPrices;
 let latest = document.querySelector("#latest");
-let url='https://viralcarbons.com/get.php'
+let url='http://82.137.247.59/final.json'
 if (localStorage.getItem("prices")) {
     gPrices = JSON.parse(localStorage.getItem("prices"));
     updatePrices();
