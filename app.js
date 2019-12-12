@@ -12,7 +12,7 @@ if (localStorage.getItem("prices")) {
     gPrices = JSON.parse(localStorage.getItem("prices"));
     updatePrices();
 }
-
+console.log("Kos om koko");
 fetchData()
 async function fetchData() {
 
