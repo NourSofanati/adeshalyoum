@@ -7,7 +7,7 @@ let usdArrow = document.querySelector("#usdArrow");
 let eurArrow = document.querySelector("#eurArrow");
 let gPrices;
 let latest = document.querySelector("#latest");
-let url='https://noursofanati.online/'
+//let url='https://noursofanati.online/'
 if (localStorage.getItem("prices")) {
     gPrices = JSON.parse(localStorage.getItem("prices"));
     updatePrices();
