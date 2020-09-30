@@ -7,19 +7,18 @@ let usdArrow = document.querySelector("#usdArrow");
 let eurArrow = document.querySelector("#eurArrow");
 let gPrices;
 let latest = document.querySelector("#latest");
-let url='https://noursofanati.online/'
+let url = 'https://nayzac.online/prices.php'
 if (localStorage.getItem("prices")) {
     gPrices = JSON.parse(localStorage.getItem("prices"));
     updatePrices();
 }
-console.log("Kos om koko");
 fetchData()
 async function fetchData() {
 
     document.querySelector("#refreshIcon").classList.add("rotate");
     await fetch(url).then(data => data.json()).then(prices => {
         gPrices = prices;
-        
+
         localStorage.setItem("prices", JSON.stringify(prices));
         updatePrices()
         update.classList.add("justUpdated");
@@ -32,11 +31,11 @@ async function fetchData() {
 
 function updatePrices() {
 
-    usdSell.textContent = gPrices.newPrices[0].sell_price;
-    usdBuy.textContent = gPrices.newPrices[0].buy_price;
-    gPrices.newPrices[0].sell_price < gPrices.oldPrices[0].sell_price ? usdArrow.src = "/assets/arrow-down.svg" : usdArrow.src = "/assets/arrow-up.svg";
-    eurSell.textContent = gPrices.newPrices[1].sell_price;
-    eurBuy.textContent = gPrices.newPrices[1].buy_price;
-    gPrices.newPrices[1].sell_price < gPrices.oldPrices[1].sell_price ? eurArrow.src = "/assets/arrow-down.svg" : eurArrow.src = "/assets/arrow-up.svg";
+    usdSell.textContent = gPrices[0].bid;
+    usdBuy.textContent = gPrices[0].ask;
+    usdArrow.src = gPrices[0].arrow == 0 ? "/assets/arrow-down.svg" : usdArrow.src = "/assets/arrow-up.svg";
+    eurSell.textContent = gPrices[1].bid;
+    eurBuy.textContent = gPrices[1].ask;
+    eurArrow.src = gPrices[1].arrow == 0 ? "/assets/arrow-down.svg" : eurArrow.src = "/assets/arrow-up.svg";
     latest.textContent = gPrices.lastUpdate;
 }

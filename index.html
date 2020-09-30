@@ -13,17 +13,16 @@
     <title>أديش اليوم</title>
     <link rel="preconnect" href="https://viralcarbons.com">
     <link rel="stylesheet" href="style.css">
-    
+
 </head>
 
 <body>
 
-  <div class="container">
+    <div class="container">
 
         <h1 class="header-text">
-المخدم تحت الصيانة
 
-<br><span id="latest"></span></h1>
+            <br><span id="latest"></span></h1>
         <div class="pricecard">
             <img src="assets/usd.svg" alt="USD Icon" class="currency-icon">
             <span class="left-pane">
@@ -33,66 +32,60 @@
                         <p>بيع:</p>
                         <p class="value">000</p>
                     </span>
-            <span class="buy-price">
+                    <span class="buy-price">
                         <p>شراء:</p>
                         <p class="value">000</p>
                     </span>
+                </div>
+            </span>
         </div>
-        </span>
-    </div>
-    <div class="pricecard">
-        <img src="assets/bank.svg" alt="MRK Icon" class="currency-icon">
-        <span class="left-pane">
+        <div class="pricecard">
+            <img src="assets/bank.svg" alt="MRK Icon" class="currency-icon">
+            <span class="left-pane">
                 <h1 class="currency-name">صرف المركزي <img id="mrkArrow" alt="Arrow Icon" src="assets/steady.svg"></h1>
                 <div class="values" id="mrk">
                     <span class="sell-price">
                         <p>بيع:</p>
-                        <p class="value">438.34</p>
+                        <p class="value">1256 </p>
                     </span>
-        <span class="buy-price">
+                    <span class="buy-price">
                         <p>شراء:</p>
-                        <p class="value">434</p>
+                        <p class="value">1256 </p>
                     </span>
-    </div>
-    </span>
-    </div>
-    <div class="pricecard">
-        <img src="assets/eur.svg" alt="Euro Icon" class="currency-icon">
-        <span class="left-pane">
+                </div>
+            </span>
+        </div>
+        <div class="pricecard">
+            <img src="assets/eur.svg" alt="Euro Icon" class="currency-icon">
+            <span class="left-pane">
                 <h1 class="currency-name">صرف اليورو <img id="eurArrow" alt="Arrow icon" src="assets/steady.svg"></h1>
                 <div class="values" id="eur">
                     <span class="sell-price">
                         <p>بيع:</p>
                         <p class="value">000</p>
                     </span>
-        <span class="buy-price">
+                    <span class="buy-price">
                         <p>شراء:</p>
                         <p class="value">000</p>
                     </span>
+                </div>
+            </span>
+        </div>
+        <div class="update">
+            <h2>تم التحديث لآخر نشرة</h2>
+        </div>
+        <div class="update-button" onclick="fetchData()">
+            <img src="assets/refresh.svg" id="refreshIcon" alt="Refresh icon"> تحديث النشرة
+        </div>
     </div>
-    </span>
-    </div>
-    <div class="update">
-        <h2>تم التحديث لآخر نشرة</h2>
-    </div>
-    <div class="update-button" onclick="fetchData()">
-        <img src="assets/refresh.svg" id="refreshIcon" alt="Refresh icon"> تحديث النشرة
-    </div>
-    </div>
-   
+
+    <script src="app.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
+            window.addEventListener('load', function () {
                 navigator.serviceWorker.register('/service-worker.js');
             });
         }
-    </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-59460594-3"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-59460594-3');
     </script>
 </body>
 
